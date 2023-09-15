@@ -1,0 +1,2 @@
+Gra mastermind w terminalu
+https://pl.wikipedia.org/wiki/Mastermind_(gra_planszowa)
