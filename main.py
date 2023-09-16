@@ -11,32 +11,49 @@ def fields(field, large,small):
     field8 = [[8,0,0,0], [0,0,0,0]]
     match field:
         case "0":
-            print("Pole do gry",field0)
+            field0 = large, small
+            print("Pole do gry",field, field0)
         case "1":
-            print("Pole do gry",field1)
+            field1 = large, small
+            print("Pole do gry",field, field1)
         case "2":
-            print("Pole do gry",field2)
+            field2 = large, small
+            print("Pole do gry",field, field2)
         case "3":
-            print("Pole do gry",field3)
+            field3 = large, small
+            print("Pole do gry",field, field3)
         case "4":
-            print("Pole do gry",field4)
+            field4 = large, small
+            print("Pole do gry",field, field4)
         case "5":
-            print("Pole do gry",field5)
+            field5 = large, small
+            print("Pole do gry",field, field5)
         case "6":
-            print("Pole do gry",field6)
+            field6 = large, small
+            print("Pole do gry",field, field6)
         case "7":
-            print("Pole do gry",field7)
-                        
-
+            field7 = large, small
+            print("Pole do gry",field, field7)
+        case "8":
+            field8 = large, small
+            print("Pole do gry",field, field8)                     
+#Dynamiczne pole
+def code(a,b,c,d):
+    secret = [a,b,c,d]
+    print("Kod Mastermind: ", secret)
 def test(field_dyn):
-    # Dynamic_Variable_Name can be
-# anything the user wants
-# The value 2020 is assigned
-# to "geek" variable
     globals()[field_dyn] = ["X","Y"]
-# Display variable
-    print("Dynamiczne pole",fieldX)
-
-
-fields(3,0,1)
+    print("Dynamiczne pole", globals()[field_dyn])
+#Wrpwoadzanie wartości do pola gry
+def points():
+    player1 = 0
+    #Obliczanie punktów
+    return player1
+def set_mark(field,a,b,c,d):
+    duze = [a,b,c,d]
+    male = [1,1,1,1]
+    set = fields(field, duze, male)
+x = set_mark("5","X","Y","A","B")
+#fields("3",0,1)
 test("fieldX")
+code("X","V","F","P")
