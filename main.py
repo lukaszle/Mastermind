@@ -1,5 +1,8 @@
+import random
+
 def fields(field, large,small):
     #Pole do gry z czterema dużymi otworami, a także czterema małymi otworami
+    #5 kolorów pionków
     field0 = [[0,0,0,0], [0,0,0,0]]
     field1 = [[1,0,0,0], [0,0,0,0]]
     field2 = [[2,0,0,0], [0,0,0,0]]
@@ -39,12 +42,16 @@ def fields(field, large,small):
             print("Pole do gry",field, field8)                     
 #Dynamiczne pole
 def code(a,b,c,d):
+    #5 kolorów pionków do ustalania kodu
+    pin = ["A","B","C","D","E","F"]
+    #Losowanie elementu z tablicy
+    a = random.randint(41,46)
     secret = [a,b,c,d]
     print("Kod Mastermind: ", secret)
 def test(field_dyn):
     globals()[field_dyn] = ["X","Y"]
     print("Dynamiczne pole", globals()[field_dyn])
-#Wrpwoadzanie wartości do pola gry
+#Wrpwoadzanie wartości do pola grye
 def points():
     player1 = 0
     #Obliczanie punktów
