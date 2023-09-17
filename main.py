@@ -45,7 +45,10 @@ def code(a,b,c,d):
     #5 kolorów pionków do ustalania kodu
     pin = ["A","B","C","D","E","F"]
     #Losowanie elementu z tablicy
-    a = random.randint(41,46)
+    a = random.choice(pin)
+    b = random.choice(pin)
+    c = random.choice(pin)
+    d = random.choice(pin)
     secret = [a,b,c,d]
     print("Kod Mastermind: ", secret)
 def test(field_dyn):
