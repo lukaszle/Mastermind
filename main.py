@@ -94,7 +94,6 @@ def game():
                 break
     else:
         quit()
-        return points
     quit()
 #fields("3",0,1)
 game()
