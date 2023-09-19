@@ -41,7 +41,7 @@ def fields(field, large,small):
             field8 = large, small
             print("Pole do gry",field, field8)                     
 #Dynamiczne pole
-def code(a,b,c,d):
+def code():
     #5 kolorów pionków do ustalania kodu
     pin = ["A","B","C","D","E","F"]
     #Losowanie elementu z tablicy
@@ -50,7 +50,7 @@ def code(a,b,c,d):
     c = random.choice(pin)
     d = random.choice(pin)
     secret = [a,b,c,d]
-    print("Kod Mastermind: ", secret)
+    return secret
 def test(field_dyn):
     globals()[field_dyn] = ["X","Y"]
     print("Dynamiczne pole", globals()[field_dyn])
@@ -59,11 +59,43 @@ def points():
     player1 = 0
     #Obliczanie punktów
     return player1
-def set_mark(field,a,b,c,d):
-    duze = [a,b,c,d]
-    male = [1,1,1,1]
-    set = fields(field, duze, male)
-x = set_mark("5","X","Y","A","B")
+def check_code(code, entered_code):
+    male = []
+    print("\"X\" oznacza trafienie litery na prawidłowej pozycji")
+    print("\"O\" oznacza trafienie litery znajdującej się na liście ale na nieodpowiedniej pozycji ")
+    for i in range(4):
+        if entered_code[i] == code[i]:
+            male.append("X")
+        elif entered_code[i] in code:
+            male.append("O")
+        else:
+            male.append("-")
+    return male
+
+def game():
+    #Funkcja do gry w Mastermind
+    points = 0
+    print("Gra Mstermind")
+    start = input("Żeby rozpocząć nową grę wprowadź \"N\" Żeby zakończyć wprowadź \"Q\"")
+    if start == "N":
+        kod = code()
+        for i in range(10):
+            runda = i+1
+            print("Runda ", runda)
+            x = input("Wprowadź 4 litery od A do F:")
+            x_list = [*x]
+            print("Wprowadzony kod:", x_list)
+            check = check_code(kod, x_list)
+            #print("Wynik:", check)
+            fields(str(i),x_list, check)
+            if check == ["X","X","X","X"]:
+                print("Wygrałeś")
+                print("Wygrana w", runda, "rundach")
+                print("Kod Mastermind: ", kod)
+                break
+    else:
+        quit()
+        return points
+    quit()
 #fields("3",0,1)
-test("fieldX")
-code("X","V","F","P")
+game()
