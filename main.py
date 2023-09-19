@@ -84,7 +84,7 @@ def game():
             print("Runda ", runda)
             x = input("Wprowadź 4 litery od A do F:")
             x_list = [*x]
-            print("Wprowadzony kod:", x_list)
+            #print("Wprowadzony kod:", x_list)
             check = check_code(kod, x_list)
             #print("Wynik:", check)
             fields(str(i),x_list, check)
