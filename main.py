@@ -51,18 +51,14 @@ def code():
     d = random.choice(pin)
     secret = [a,b,c,d]
     return secret
-def test(field_dyn):
-    globals()[field_dyn] = ["X","Y"]
-    print("Dynamiczne pole", globals()[field_dyn])
-#Wrpwoadzanie wartości do pola grye
-def points():
-    player1 = 0
-    #Obliczanie punktów
-    return player1
+
+
 def check_code(code, entered_code):
     male = []
     print("\"X\" oznacza trafienie litery na prawidłowej pozycji")
     print("\"O\" oznacza trafienie litery znajdującej się na liście ale na nieodpowiedniej pozycji ")
+    print("\"-\" oznacza brak litery na liście ")
+
     for i in range(4):
         if entered_code[i] == code[i]:
             male.append("X")
@@ -74,13 +70,16 @@ def check_code(code, entered_code):
 
 def game():
     #Funkcja do gry w Mastermind
-    points = 0
-    print("Gra Mstermind")
+    print("Gra Mastermind")
     start = input("Żeby rozpocząć nową grę wprowadź \"N\" Żeby zakończyć wprowadź \"Q\"")
     if start == "N":
         kod = code()
-        for i in range(10):
-            runda = i+1
+        for i in range(9):
+            runda = i
+            if runda == 8:
+                print("Przegrałeś")
+                print("Kod Mastermind", kod)
+                break
             print("Runda ", runda)
             x = input("Wprowadź 4 litery od A do F:")
             x_list = [*x]
