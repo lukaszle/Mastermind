@@ -15,5 +15,12 @@
             <li>{{ attempt.guess }} - {{ attempt.feedback }}</li>
         {% endfor %}
     </ul>
+
+    <button onclick="window.location.href='http://127.0.0.1:5000/newgame';">
+    Nowa gra
+    </button>
+    <p>"X" oznacza trafienie litery na prawidłowej pozycji</p>
+    <p>"O" oznacza trafienie litery znajdującej się na liście ale na nieodpowiedniej pozycji</p>
+    <p>"-" oznacza brak litery na liście</p>
 </body>
 </html>
