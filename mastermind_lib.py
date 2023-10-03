@@ -55,9 +55,9 @@ def code():
 
 def check_code(code, entered_code):
     male = []
-    print("\"X\" oznacza trafienie litery na prawidłowej pozycji")
-    print("\"O\" oznacza trafienie litery znajdującej się na liście ale na nieodpowiedniej pozycji ")
-    print("\"-\" oznacza brak litery na liście ")
+    #print("\"X\" oznacza trafienie litery na prawidłowej pozycji")
+    #print("\"O\" oznacza trafienie litery znajdującej się na liście ale na nieodpowiedniej pozycji ")
+    #print("\"-\" oznacza brak litery na liście ")
 
     for i in range(4):
         if entered_code[i] == code[i]:
