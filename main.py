@@ -4,7 +4,35 @@ import mastermind_lib
 app = Flask(__name__)
 app.secret_key = "FJ390384230HG0ESFH0EWRH308RH405438"
 
-@app.route("/", methods=["GET", "POST"])
+#@app.route("/theme")
+#def index2():
+#    return render_template("index2.html")
+
+# Sample list of items
+items = [
+    {"id": 1, "name": "Item1"},
+    {"id": 2, "name": "Item2"},
+    {"id": 3, "name": "Item3"},
+    {"id": 4, "name": "Item4"},
+    # Add more items here
+]
+
+@app.route('/test')
+def index():
+    return render_template('test.html', items=items)
+
+def process_form():
+    # Access form data using request.form
+    #selected_color = request.form.get('A')  # Replace 'A' with the actual name of the button clicked
+    a = request.form.get["A"]
+    b = request.form.get["B"]
+    c = request.form.get["C"]
+    d = request.form.get["D"]
+    # Process the selected color here
+    print(A)
+    return True
+
+@app.route("/theme", methods=["GET", "POST"])
 def mastermind():
     if "secret" not in session:
         session["secret"] = mastermind_lib.code()
@@ -13,6 +41,7 @@ def mastermind():
 
     if request.method == "POST":
         x = request.form["guess"]
+        print(A)
         x = x.upper()
         guess = list(x)
         feedback = mastermind_lib.check_code(session["secret"], guess)
@@ -24,7 +53,7 @@ def mastermind():
             return redirect(url_for('win'))
         if attempts == 10:
             return redirect(url_for("loose"))
-    return render_template("index.html", attempts=session["attempts"], feedback=session["feedback"])
+    return render_template("index2.html", attempts=session["attempts"], feedback=session["feedback"], items=items)
 
 @app.route("/newgame")
 def new_game():

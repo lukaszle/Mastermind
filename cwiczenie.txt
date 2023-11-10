@@ -1,0 +1,3 @@
+Dekorator do generowania kodu Mastermind z wykorzystaniem funkcji map.
+Dekorator do sprawdzenia kodu Mastermind z wykorzystaniem funkcji map.
+Mastermind wersja z kolorowym skinem w Bootstrap 5.

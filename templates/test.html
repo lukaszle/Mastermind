@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Item List</title>
+</head>
+<body>
+    <h1>Item List</h1>
+    <ul>
+        {% for item in items %}
+        <li>
+            {{ item.name }}
+            <div>
+                <button onclick="handleButtonClick('view', {{ item.id }})">View</button>
+                <button onclick="handleButtonClick('edit', {{ item.id }})">Edit</button>
+                <button onclick="handleButtonClick('delete', {{ item.id }})">Delete</button>
+                <button onclick="handleButtonClick('other', {{ item.id }})">Other</button>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <script>
+        function handleButtonClick(action, itemId) {
+            // Handle button click logic here
+            // You can use JavaScript to perform actions based on the button clicked.
+            alert(`Performing ${action} on item with ID ${itemId}`);
+        }
+    </script>
+</body>
+</html>
