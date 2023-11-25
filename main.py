@@ -1,7 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_socketio import SocketIO
+from flask_socketio import emit
+
 import mastermind_lib
 
 app = Flask(__name__)
+socketio = SocketIO(app)
 app.secret_key = "FJ390384230HG0ESFH0EWRH308RH405438"
 
 #@app.route("/theme")
@@ -10,17 +14,23 @@ app.secret_key = "FJ390384230HG0ESFH0EWRH308RH405438"
 
 # Sample list of items
 items = [
+    {"id": 0, "name": "Item0"},
     {"id": 1, "name": "Item1"},
     {"id": 2, "name": "Item2"},
     {"id": 3, "name": "Item3"},
     {"id": 4, "name": "Item4"},
+    {"id": 5, "name": "Item5"},
+    {"id": 6, "name": "Item6"},
+    {"id": 7, "name": "Item7"},
+    {"id": 8, "name": "Item8"},
+    {"id": 9, "name": "Item9"},
     # Add more items here
 ]
-
+#Plansza mastermind w formie tablicy podłączona do przycisków
 @app.route('/test')
 def index():
     return render_template('test.html', items=items)
-
+#Przyciski z linkiem do wysyłania liter.
 def process_form():
     # Access form data using request.form
     #selected_color = request.form.get('A')  # Replace 'A' with the actual name of the button clicked
@@ -31,6 +41,10 @@ def process_form():
     # Process the selected color here
     print(A)
     return True
+
+@socketio.on('TestEvent')
+def handle_message(data):
+    print('received message: ' + str(data))
 
 @app.route("/theme", methods=["GET", "POST"])
 def mastermind():
@@ -69,4 +83,4 @@ def win():
 def loose():
     return render_template("loose.html", secret=session["secret"])
 if __name__ == "__main__":
-    app.run(debug=True)
+    socketio.run(app, debug=True, host='0.0.0.0', port=5000)
